@@ -2,6 +2,8 @@
 
 # WARNING DO NOT DOWNLOAD PsExec64.exe OR PsExec.exe!
 
+# PLEASE DOWNLOAD THE FILES PsExecc64.exe OR PsExecc32.exe ACCORDING TO UR SYSTEM BIT THINGY. LIKE AT THE END THE 2 NUMBERS ARE BITS LIKE WINDOWS 32 BITS AND 64 BITS
+
 ## Overview
 The PsExec project provides a batch script to run commands with SYSTEM privileges using PsExec, a utility that allows you to execute processes on remote systems and access administrative features.
 
