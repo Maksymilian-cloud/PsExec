@@ -18,9 +18,9 @@ The PsExec project provides a batch script to run commands with SYSTEM privilege
    - Clone the repository or download the ZIP file containing the project files from GitHub.
 
 2. **Run the Setup Script**:
-   - Locate the `SetupSystemCmd.bat` file.
+   - Locate the `PsExec.exe` file.
    - Right-click on the file and select **Run as administrator**. This will:
-     - Download the `PsExec.exe` utility from the provided link.
+     - Download the `PsExec.exe` utility from the provided link in the code.
      - Create a batch script `PsExec.bat` on your desktop.
      - Add a right-click context menu option to open the Command Prompt with SYSTEM privileges.
 
@@ -39,3 +39,21 @@ Once in the SYSTEM Command Prompt, you can run any command with elevated privile
 ```batch
 whoami
 net user
+
+
+
+## How to Remove PsExec
+
+If you wish to uninstall the PsExec utility, follow these steps:
+
+1. **Download the Uninstall Script**:
+   - Locate the `PsExecUninstall.exe` file in your project files.
+
+2. **Run the Uninstall Script**:
+   - Right-click on the `PsExecUninstall.exe` file and select **Run as administrator**. This will:
+     - Remove `PsExec.exe` and the `PsExec.bat` script from your desktop.
+     - Delete the context menu entry for opening the SYSTEM Command Prompt.
+
+3. **Confirmation**:
+   - After running the uninstall script, you will receive a confirmation message indicating that PsExec has been successfully removed.
+
