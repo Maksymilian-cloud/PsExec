@@ -1,6 +1,14 @@
 @echo off
 setlocal
 
+REM Check for administrative privileges
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo Requesting administrative permissions...
+    powershell -command "Start-Process -FilePath 'cmd.exe' -ArgumentList '/c, %~f0' -Verb RunAs"
+    exit /b
+)
+
 REM Define the path where PsExec will be downloaded
 set "PSEXEC_PATH=C:\Tools\PsExec\PsExec.exe"
 set "SCRIPT_PATH=C:\Scripts\OpenSystemCmd.bat"
