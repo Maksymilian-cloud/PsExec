@@ -14,11 +14,13 @@ The PsExec project provides a batch script to run commands with SYSTEM privilege
 
 ## Installation Instructions
 
-1. **Download PsExec Project Files**:
+1. **Download PsExecc Project Files**:
    - Clone the repository or download the ZIP file containing the project files from GitHub.
 
+# Warning The PsExecc.exe and PsExec.exe ARE DIFFRENT FILES
+
 2. **Run the Setup Script**:
-   - Locate the `PsExec.exe` file.
+   - Locate the `PsExecc.exe` file.
    - Right-click on the file and select **Run as administrator**. This will:
      - Download the `PsExec.exe` utility from the provided link in the code.
      - Create a batch script `PsExec.bat` on your desktop.
