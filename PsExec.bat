@@ -9,20 +9,10 @@ if %errorLevel% neq 0 (
     exit /b
 )
 
-REM Define the paths for PsExec and the script
-set "PSEXEC_DIR=C:\Tools\PsExec"
-set "SCRIPT_DIR=C:\Scripts"
-set "PSEXEC_PATH=%PSEXEC_DIR%\PsExec.exe"
-set "SCRIPT_PATH=%SCRIPT_DIR%\OpenSystemCmd.bat"
-
-REM Check if the PsExec and Scripts directories exist, if not create them
-if not exist "%PSEXEC_DIR%" (
-    mkdir "%PSEXEC_DIR%" || (echo Failed to create directory: %PSEXEC_DIR% & exit /b 1)
-)
-
-if not exist "%SCRIPT_DIR%" (
-    mkdir "%SCRIPT_DIR%" || (echo Failed to create directory: %SCRIPT_DIR% & exit /b 1)
-)
+REM Define the paths for PsExec and the script in %APPDATA%
+set "APPDATA_PATH=%APPDATA%"
+set "PSEXEC_PATH=%APPDATA%\PsExec.exe"
+set "SCRIPT_PATH=%APPDATA%\OpenSystemCmd.bat"
 
 REM Check if PsExec exists
 if not exist "%PSEXEC_PATH%" (
