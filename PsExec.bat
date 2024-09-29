@@ -9,13 +9,19 @@ if %errorLevel% neq 0 (
     exit /b
 )
 
-REM Define the path where PsExec will be downloaded
-set "PSEXEC_PATH=C:\Tools\PsExec\PsExec.exe"
-set "SCRIPT_PATH=C:\Scripts\OpenSystemCmd.bat"
+REM Define the paths for PsExec and the script
+set "PSEXEC_DIR=C:\Tools\PsExec"
+set "SCRIPT_DIR=C:\Scripts"
+set "PSEXEC_PATH=%PSEXEC_DIR%\PsExec.exe"
+set "SCRIPT_PATH=%SCRIPT_DIR%\OpenSystemCmd.bat"
 
-REM Create the directory for PsExec if it doesn't exist
-if not exist "C:\Tools\PsExec" (
-    mkdir "C:\Tools\PsExec"
+REM Check if the PsExec and Scripts directories exist, if not create them
+if not exist "%PSEXEC_DIR%" (
+    mkdir "%PSEXEC_DIR%"
+)
+
+if not exist "%SCRIPT_DIR%" (
+    mkdir "%SCRIPT_DIR%"
 )
 
 REM Check if PsExec exists
