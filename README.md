@@ -45,6 +45,7 @@ Once in the SYSTEM Command Prompt, you can run any command with elevated privile
 ```batch
 whoami
 net user
+```
 
 
 
