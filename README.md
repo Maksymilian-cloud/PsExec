@@ -1,5 +1,7 @@
 # PsExec
 
+# WARNING DO NOT DOWNLOAD PsExec64.exe OR PsExec.exe!
+
 ## Overview
 The PsExec project provides a batch script to run commands with SYSTEM privileges using PsExec, a utility that allows you to execute processes on remote systems and access administrative features.
 
