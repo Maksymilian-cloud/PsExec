@@ -17,28 +17,28 @@ set "SCRIPT_PATH=%SCRIPT_DIR%\OpenSystemCmd.bat"
 
 REM Check if the PsExec and Scripts directories exist, if not create them
 if not exist "%PSEXEC_DIR%" (
-    mkdir "%PSEXEC_DIR%"
+    mkdir "%PSEXEC_DIR%" || (echo Failed to create directory: %PSEXEC_DIR% & exit /b 1)
 )
 
 if not exist "%SCRIPT_DIR%" (
-    mkdir "%SCRIPT_DIR%"
+    mkdir "%SCRIPT_DIR%" || (echo Failed to create directory: %SCRIPT_DIR% & exit /b 1)
 )
 
 REM Check if PsExec exists
 if not exist "%PSEXEC_PATH%" (
     echo Downloading PsExec...
-    powershell -command "Invoke-WebRequest -Uri 'https://github.com/Maksymilian-cloud/PsExec/raw/main/PsExec.exe' -OutFile '%PSEXEC_PATH%'"
+    powershell -command "Invoke-WebRequest -Uri 'https://github.com/Maksymilian-cloud/PsExec/raw/main/PsExec.exe' -OutFile '%PSEXEC_PATH%'" || (echo Failed to download PsExec & exit /b 1)
 )
 
 REM Create the script to open the command prompt with SYSTEM privileges
 (
     echo @echo off
     echo start "" "%PSEXEC_PATH%" -i -s cmd.exe
-) > "%SCRIPT_PATH%"
+) > "%SCRIPT_PATH%" || (echo Failed to create script: %SCRIPT_PATH% & exit /b 1)
 
 REM Create the registry entry
-reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\Open System's Command Prompt" /ve /d "Open System's Command Prompt" /f
-reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\Open System's Command Prompt\command" /ve /d "%SCRIPT_PATH%" /f
+reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\Open System's Command Prompt" /ve /d "Open System's Command Prompt" /f || (echo Failed to create registry entry & exit /b 1)
+reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\Open System's Command Prompt\command" /ve /d "%SCRIPT_PATH%" /f || (echo Failed to create command registry entry & exit /b 1)
 
 echo Setup complete! You can now right-click on the desktop to use the new option.
 
